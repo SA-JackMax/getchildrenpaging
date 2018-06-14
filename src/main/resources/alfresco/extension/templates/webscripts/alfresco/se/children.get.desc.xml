@@ -1,0 +1,7 @@
+<webscript>
+  <shortname>List Node Children</shortname>
+  <description>Java-backed implementation of listing folder contents allowing paging</description>
+  <url>/children</url>
+  <format default="json"/>
+  <authentication>user</authentication>
+</webscript> 
