@@ -5,8 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.xml.ws.WebServiceException;
-
 import org.alfresco.repo.jscript.ScriptNode;
 import org.alfresco.service.ServiceRegistry;
 import org.alfresco.service.cmr.repository.ChildAssociationRef;
@@ -19,6 +17,7 @@ import org.mozilla.javascript.Scriptable;
 import org.springframework.extensions.webscripts.Cache;
 import org.springframework.extensions.webscripts.DeclarativeWebScript;
 import org.springframework.extensions.webscripts.Status;
+import org.springframework.extensions.webscripts.WebScriptException;
 import org.springframework.extensions.webscripts.WebScriptRequest;
 
 /**
@@ -42,7 +41,7 @@ public class GetChildrenPaging extends DeclarativeWebScript {
             WebScriptRequest req, Status status, Cache cache) {
     	String noderef=req.getParameter("noderef");
     	if(noderef==null)
-    		throw new WebServiceException("No noderef argument provided.");
+    		throw new WebScriptException("No noderef argument provided.");
     	
     	int page=getInt(req,"page",0);
 
